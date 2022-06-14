@@ -11,6 +11,7 @@ const ReviewCard = ({ review }) => {
     designer,
     votes,
     comment_count,
+    category,
   } = review;
 
   return (
@@ -19,6 +20,7 @@ const ReviewCard = ({ review }) => {
         <h2>{title}</h2>
         <img alt={title} className="review-icon" src={review_img_url}></img>
         <h3>{designer.toUpperCase()}</h3>
+        <p>{category}</p>
         <p>{shortenText(review_body, 100)}</p>
         <p>
           <span>
