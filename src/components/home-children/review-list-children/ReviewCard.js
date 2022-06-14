@@ -1,12 +1,18 @@
-import { shortenText } from "../../../utils/utils";
+import { convertDate, shortenText } from "../../../utils/utils";
 import { BiComment } from "react-icons/bi";
-import { AiFillHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineCalendar } from "react-icons/ai";
 
 const ReviewCard = ({ review }) => {
-  const { review_img_url, review_body, title, designer, votes, comment_count } =
-    review;
+  const {
+    created_at,
+    review_img_url,
+    review_body,
+    title,
+    designer,
+    votes,
+    comment_count,
+  } = review;
 
-  console.log(review_img_url);
   return (
     <>
       <div className="review-card">
@@ -15,6 +21,10 @@ const ReviewCard = ({ review }) => {
         <h3>{designer.toUpperCase()}</h3>
         <p>{shortenText(review_body, 100)}</p>
         <p>
+          <span>
+            <AiOutlineCalendar />
+            {convertDate(created_at)}
+          </span>
           <span className="comment-count">
             <BiComment /> {comment_count}
           </span>
