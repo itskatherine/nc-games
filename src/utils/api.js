@@ -9,3 +9,9 @@ export const getAllReviews = () => {
     return response.data.reviews;
   });
 };
+
+export const getAllCategories = () => {
+  return boardgameAPI.get("/categories").then((response) => {
+    return response.data.categories;
+  });
+};
