@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+ul{margin:0; padding:0;}
+
+header{
+  padding: 2em;
+}
+
+.review-list{
+  display:flex;
+  flex-wrap:wrap;
+}
 
 .review-card{
   background-color: #cccccc;
@@ -9,4 +19,21 @@
   padding: 1em;
   margin: 1em;
   border-radius: 20px;
+
+  max-width:300px;
+}
+
+img.review-icon{
+  object-fit: cover;
+  width:5em;
+  height: 5em;
+  border-radius:50%
+}
+
+span{
+  padding-right: 1em;
+}
+
+h3{
+  color:rgb(36, 41, 130);
 }
