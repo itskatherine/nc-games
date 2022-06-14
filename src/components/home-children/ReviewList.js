@@ -18,13 +18,11 @@ const ReviewList = () => {
   }
 
   return (
-    <>
-      <ul className="review-list">
-        {reviewList.map((review) => {
-          return <ReviewCard review={review} key={review.review_id} />;
-        })}
-      </ul>
-    </>
+    <ul className="review-list">
+      {reviewList.map((review) => {
+        return <ReviewCard review={review} key={review.review_id} />;
+      })}
+    </ul>
   );
 };
 

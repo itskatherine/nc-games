@@ -15,9 +15,9 @@ const ReviewCard = ({ review }) => {
 
   return (
     <>
-      <div className="review-card">
+      <li className="review-card">
         <h2>{title}</h2>
-        <img className="review-icon" src={review_img_url}></img>
+        <img alt={title} className="review-icon" src={review_img_url}></img>
         <h3>{designer.toUpperCase()}</h3>
         <p>{shortenText(review_body, 100)}</p>
         <p>
@@ -32,7 +32,7 @@ const ReviewCard = ({ review }) => {
             <AiFillHeart /> {votes}
           </span>
         </p>
-      </div>
+      </li>
     </>
   );
 };

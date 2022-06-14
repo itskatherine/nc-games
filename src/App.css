@@ -2,7 +2,11 @@
   text-align: center;
 }
 
-ul{margin:0; padding:0;}
+ul,li{
+  margin:0;
+  padding:0;
+  list-style: none;
+}
 
 header{
   padding: 2em;
@@ -22,6 +26,7 @@ header{
 
   max-width:300px;
 }
+
 
 img.review-icon{
   object-fit: cover;
