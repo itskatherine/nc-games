@@ -2,3 +2,11 @@
   text-align: center;
 }
 
+
+.review-card{
+  background-color: #cccccc;
+  background-image: linear-gradient(rgb(124, 193, 246), rgb(164, 96, 198));
+  padding: 1em;
+  margin: 1em;
+  border-radius: 20px;
+}
