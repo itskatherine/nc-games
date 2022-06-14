@@ -10,3 +10,12 @@ export const shortenText = (text, length) => {
 export const convertDate = (date) => {
   return dayjs(date).format("DD/MM");
 };
+
+export const formatCategories = (category) => {
+  const categoryCopy = category;
+  const categoryCopyArr = categoryCopy.split("");
+  categoryCopyArr[0] = categoryCopyArr[0].toUpperCase();
+  const toString = categoryCopyArr.join("");
+  const noSpaces = toString.replaceAll("-", " ");
+  return noSpaces;
+};

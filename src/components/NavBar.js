@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
+import { formatCategories } from "../utils/utils";
 
 const NavBar = ({ categories }) => {
   const [isOpen, setOpen] = useState(false);
@@ -18,7 +19,7 @@ const NavBar = ({ categories }) => {
             return (
               <li key={index}>
                 <Link to={`/reviews/categories/${category.slug}`}>
-                  {category.slug}
+                  {formatCategories(category.slug)}
                 </Link>
               </li>
             );
