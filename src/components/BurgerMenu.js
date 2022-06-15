@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import Hamburger from "hamburger-react";
+import { useState } from "react";
 import { formatCategories } from "../utils/utils";
 
-const NavBar = ({ categories }) => {
+const BurgerMenu = ({ categories }) => {
+  const [isOpen, setOpen] = useState(false);
+
   return (
     <>
-      <ul>
+      <Hamburger toggled={isOpen} toggle={setOpen} />
+      <ul className={`burger-menu ${isOpen ? " showMenu" : ""}`}>
         <Link to="/">
           <h2>Home</h2>
         </Link>
@@ -25,4 +30,4 @@ const NavBar = ({ categories }) => {
   );
 };
 
-export default NavBar;
+export default BurgerMenu;
