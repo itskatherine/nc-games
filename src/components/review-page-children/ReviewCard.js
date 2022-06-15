@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { incrementReviewVotesById } from "../../utils/api";
 import { convertDate, formatCategories } from "../../utils/utils";
+import HeartVote from "../HeartVote";
 
 const ReviewCard = ({ review }) => {
   const {
@@ -36,14 +36,11 @@ const ReviewCard = ({ review }) => {
           className="review-page-icon"
           src={review_img_url}
         ></img>
-        <p>
-          {voteChange === 0 ? (
-            <AiOutlineHeart onClick={handleVote} />
-          ) : (
-            <AiFillHeart />
-          )}
-          {votes + voteChange} votes
-        </p>
+        <HeartVote
+          handleFunc={handleVote}
+          votes={votes}
+          voteChange={voteChange}
+        />
         <div className="review-body">
           <p>{review_body}</p>
           <p className="date">
