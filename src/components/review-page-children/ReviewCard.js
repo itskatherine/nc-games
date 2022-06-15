@@ -22,7 +22,6 @@ const ReviewCard = ({ review }) => {
     setVoteChange((currVotes) => currVotes + 1);
     incrementReviewVotesById(review_id, { inc_votes: 1 }).catch((err) => {
       setVoteChange((currVotes) => currVotes - 1);
-      console.log("Sorry vote didn't work");
     });
   };
 
