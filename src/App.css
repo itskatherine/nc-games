@@ -103,3 +103,26 @@ span{
 h3{
   color:rgb(36, 41, 130);
 }
+.comment-list{
+  margin-bottom:2em;
+}
+.comment{
+  background-color: rgb(219, 219, 248);
+  padding: 0.5em;
+  width: 75%;
+  display:flex;
+  margin: auto;
+  margin-top:1em;
+  border-radius: 1em;
+}
+.comment-card-author{
+margin-right:0.5em;
+flex-grow:1;
+}
+.comment-card-date-vote{
+flex-grow:1;
+}
+.comment-body{
+flex-grow:4
+}
+

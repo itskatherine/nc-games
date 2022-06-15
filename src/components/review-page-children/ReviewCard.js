@@ -40,6 +40,7 @@ const ReviewCard = ({ review }) => {
           handleFunc={handleVote}
           votes={votes}
           voteChange={voteChange}
+          expanded={true}
         />
         <div className="review-body">
           <p>{review_body}</p>

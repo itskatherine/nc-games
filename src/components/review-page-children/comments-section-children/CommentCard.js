@@ -15,18 +15,18 @@ const CommentCard = ({ comment }) => {
 
   const { body, author, votes, created_at } = comment;
   return (
-    <>
-      <p>
-        <strong className="comment-card-author">{author}</strong>{" "}
-        <span className="comment-body">{body}</span>
+    <p className="comment">
+      <strong className="comment-card-author">{author}</strong>{" "}
+      <span className="comment-body">{body}</span>
+      <span className="comment-card-date-vote">
         <HeartVote
           handleFunc={handleCommentVote}
           votes={votes}
           voteChange={commentVoteChange}
         />
-        <span className="comment-card-date">{convertDate(created_at)}</span>
-      </p>
-    </>
+        {convertDate(created_at)}
+      </span>
+    </p>
   );
 };
 

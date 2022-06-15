@@ -11,9 +11,13 @@ const CommentsSection = ({ review_id }) => {
     });
   });
 
-  return commentsList.map((comment) => {
-    return <CommentCard comment={comment} />;
-  });
+  return (
+    <ul className="comment-list">
+      {commentsList.map((comment) => {
+        return <CommentCard comment={comment} />
+      })}
+    </ul>
+  );
 };
 
 export default CommentsSection;
