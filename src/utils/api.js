@@ -21,3 +21,11 @@ export const getReviewById = (review_id) => {
     return response.data.review;
   });
 };
+
+export const incrementReviewVotesById = (review_id, request_body) => {
+  return boardgameAPI
+    .patch(`/reviews/${review_id}`, request_body)
+    .then((response) => {
+      return response.data.updatedReview.votes;
+    });
+};
