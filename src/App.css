@@ -56,8 +56,36 @@ header{
   padding: 1em;
   margin: 1em;
   border-radius: 20px;
-
   max-width:300px;
+}
+
+p.category-header{
+  width:35%;
+}
+
+.review-page{
+  background-color: #cccccc;
+  background-image: linear-gradient(rgb(124, 193, 246), rgb(164, 96, 198));
+  border-radius: 1em;
+  padding: 2em;
+  margin: 2em;
+}
+
+.review-body{
+  background-color: white;
+  padding: 1em;
+  border-radius:1em;
+}
+
+.date{
+  color:grey;
+}
+
+img.review-page-icon{
+  object-fit: cover;
+  width:10em;
+  height:10em;
+  border-radius: 50%;
 }
 
 
