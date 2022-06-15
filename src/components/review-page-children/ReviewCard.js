@@ -31,7 +31,11 @@ const ReviewCard = ({ review }) => {
         <h2>{title}</h2>
         <h3>Designer: {designer}</h3>
         <p className="category-header">{formatCategories(category)}</p>
-        <img className="review-page-icon" src={review_img_url}></img>
+        <img
+          alt={title}
+          className="review-page-icon"
+          src={review_img_url}
+        ></img>
         <p>
           {voteChange === 0 ? (
             <AiOutlineHeart onClick={handleVote} />
