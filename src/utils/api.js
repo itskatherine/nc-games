@@ -29,3 +29,9 @@ export const incrementReviewVotesById = (review_id, request_body) => {
       return response.data.updatedReview.votes;
     });
 };
+
+export const getCommentsFromReviewId = (review_id) => {
+  return boardgameAPI.get(`/reviews/${review_id}/comments`).then((response) => {
+    return response.data.comments;
+  });
+};
