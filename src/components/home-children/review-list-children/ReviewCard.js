@@ -1,6 +1,7 @@
 import { convertDate, shortenText } from "../../../utils/utils";
 import { BiComment } from "react-icons/bi";
 import { AiFillHeart, AiOutlineCalendar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const ReviewCard = ({ review }) => {
   const {
@@ -12,10 +13,11 @@ const ReviewCard = ({ review }) => {
     votes,
     comment_count,
     category,
+    review_id,
   } = review;
 
   return (
-    <>
+    <Link to={`/reviews/${review_id}`}>
       <li className="review-card">
         <h2>{title}</h2>
         <img alt={title} className="review-icon" src={review_img_url}></img>
@@ -35,7 +37,7 @@ const ReviewCard = ({ review }) => {
           </span>
         </p>
       </li>
-    </>
+    </Link>
   );
 };
 

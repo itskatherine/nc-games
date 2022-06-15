@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAllCategories } from "./utils/api";
 import BurgerMenu from "./components/BurgerMenu";
 import useScreenSize from "./hooks/useScreenSize";
+import ReviewPage from "./components/ReviewPage";
 
 function App() {
   const [user] = useState("jessjelly");
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reviews/categories/:category" element={<Home />} />
+          <Route path="/reviews/:review_id" element={<ReviewPage />} />
         </Routes>
       </div>
     </BrowserRouter>
