@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../utils/api";
 import ErrorPage from "./ErrorPage";
+import CommentsSection from "./review-page-children/CommentsSection";
 import ReviewCard from "./review-page-children/ReviewCard";
 
 const ReviewPage = () => {
@@ -25,7 +26,16 @@ const ReviewPage = () => {
     return <ErrorPage message={error.err.message} />;
   }
 
-  return isLoaded ? <ReviewCard review={review} /> : <p>Loading...</p>;
+  if (!isLoaded) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <>
+      <ReviewCard review={review} />
+      <CommentsSection review_id={review_id} />
+    </>
+  );
 };
 
 export default ReviewPage;
