@@ -9,7 +9,7 @@ const CommentsSection = ({ review_id }) => {
     getCommentsFromReviewId(review_id).then((comments) => {
       setCommentList(comments);
     });
-  }, []);
+  });
 
   return commentsList.map((comment) => {
     return <CommentCard comment={comment} />;
