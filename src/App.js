@@ -8,6 +8,7 @@ import { getAllCategories } from "./utils/api";
 import BurgerMenu from "./components/BurgerMenu";
 import useScreenSize from "./hooks/useScreenSize";
 import ReviewPage from "./components/ReviewPage";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [user] = useState("jessjelly");
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/reviews/categories/:category" element={<Home />} />
           <Route path="/reviews/:review_id" element={<ReviewPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </BrowserRouter>
