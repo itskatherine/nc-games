@@ -21,27 +21,27 @@ const ReviewCard = ({ review }) => {
   } = review;
 
   return (
-    <Link to={`/reviews/${review_id}`}>
-      <li className="review-card">
+    <li className="review-card">
+      <Link to={`/reviews/${review_id}`}>
         <h2>{title}</h2>
         <img alt={title} className="review-icon" src={review_img_url}></img>
-        <h3>{designer}</h3>
-        <p className="category-header">{formatCategories(category)}</p>
-        <p>{shortenText(review_body, 100)}</p>
-        <p>
-          <span>
-            <AiOutlineCalendar />
-            {convertDate(created_at)}
-          </span>
-          <span className="comment-count">
-            <BiComment /> {comment_count}
-          </span>
-          <span className="vote-count">
-            <AiFillHeart /> {votes}
-          </span>
-        </p>
-      </li>
-    </Link>
+      </Link>
+      <h3>{designer}</h3>
+      <p className="category-header">{formatCategories(category)}</p>
+      <p>{shortenText(review_body, 100)}</p>
+      <p>
+        <span>
+          <AiOutlineCalendar />
+          {convertDate(created_at)}
+        </span>
+        <span className="comment-count">
+          <BiComment /> {comment_count}
+        </span>
+        <span className="vote-count">
+          <AiFillHeart /> {votes}
+        </span>
+      </p>
+    </li>
   );
 };
 
