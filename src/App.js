@@ -16,14 +16,6 @@ function App() {
     });
   }, []);
 
-  // const categoryRoutes = categories.map((category) => {
-  //   return (
-  //     <Route
-  //       path={`reviews/category/${category}`}
-  //       element={<Home categories={category} />}
-  //     />
-  //   );
-  // });
 
   return (
     <BrowserRouter>
