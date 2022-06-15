@@ -21,7 +21,7 @@ const ReviewCard = ({ review }) => {
       <li className="review-card">
         <h2>{title}</h2>
         <img alt={title} className="review-icon" src={review_img_url}></img>
-        <h3>{designer.toUpperCase()}</h3>
+        <h3>{designer}</h3>
         <p>{category}</p>
         <p>{shortenText(review_body, 100)}</p>
         <p>
