@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getCommentsFromReviewId } from "../../utils/api";
+import CommentAdder from "./comments-section-children/CommentAdder";
 import CommentCard from "./comments-section-children/CommentCard";
 
-const CommentsSection = ({ review_id }) => {
+const CommentsSection = ({ review_id, user }) => {
   const [commentsList, setCommentList] = useState([]);
 
   useEffect(() => {
@@ -12,11 +13,14 @@ const CommentsSection = ({ review_id }) => {
   });
 
   return (
-    <ul className="comment-list">
-      {commentsList.map((comment) => {
-        return <CommentCard key={comment.comment_id} comment={comment} />;
-      })}
-    </ul>
+    <>
+      <CommentAdder setCommentList={setCommentList} user={user} />
+      <ul className="comment-list">
+        {commentsList.map((comment) => {
+          return <CommentCard key={comment.comment_id} comment={comment} />;
+        })}
+      </ul>
+    </>
   );
 };
 
