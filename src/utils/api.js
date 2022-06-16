@@ -35,3 +35,18 @@ export const getCommentsFromReviewId = (review_id) => {
     return response.data.comments;
   });
 };
+
+export const postCommentFromReviewId = (review_id, user, newComment) => {
+  const request = {
+    username: user,
+    body: newComment,
+  };
+
+  return boardgameAPI
+    .post(`/reviews/${review_id}/comments`, request)
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export const sortReviewsByQuery = () => {};

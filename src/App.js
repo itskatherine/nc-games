@@ -30,7 +30,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/reviews/categories/:category" element={<Home />} />
-          <Route path="/reviews/:review_id" element={<ReviewPage />} />
+          <Route
+            path="/reviews/:review_id"
+            element={<ReviewPage user={user} />}
+          />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
