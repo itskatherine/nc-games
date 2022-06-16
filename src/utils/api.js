@@ -48,3 +48,5 @@ export const postCommentFromReviewId = (review_id, user, newComment) => {
       return response.data;
     });
 };
+
+export const sortReviewsByQuery = () => {};

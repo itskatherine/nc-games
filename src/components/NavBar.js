@@ -9,10 +9,10 @@ const NavBar = ({ categories }) => {
           <h2>Home</h2>
         </Link>
         <h2>Categories</h2>
-        <ul>
+        <ul className="category-menu">
           {categories.map((category, index) => {
             return (
-              <li className="category-menu" key={index}>
+              <li className="category-menu-item" key={index}>
                 <Link to={`/reviews/categories/${category.slug}`}>
                   {formatCategories(category.slug)}
                 </Link>
