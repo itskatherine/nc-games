@@ -10,11 +10,15 @@ const CommentsSection = ({ review_id, user }) => {
     getCommentsFromReviewId(review_id).then((comments) => {
       setCommentList(comments);
     });
-  });
+  }, [review_id]);
 
   return (
     <>
-      <CommentAdder setCommentList={setCommentList} user={user} />
+      <CommentAdder
+        setCommentList={setCommentList}
+        user={user}
+        review_id={review_id}
+      />
       <ul className="comment-list">
         {commentsList.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
