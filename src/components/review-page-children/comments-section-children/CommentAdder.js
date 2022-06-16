@@ -35,16 +35,17 @@ const CommentAdder = ({ setCommentList, user, review_id }) => {
           <label>
             <strong>{user}</strong>
           </label>
-          <input
+          <textarea
             onChange={(event) => {
               if (!submitInProgress) {
                 setNewComment(event.target.value);
               }
             }}
-            type="text"
+            rows="4"
+            cols="50"
             name="comment"
             value={newComment}
-          ></input>
+          ></textarea>
           <button type="submit" disabled={submitInProgress}>
             Submit
           </button>
