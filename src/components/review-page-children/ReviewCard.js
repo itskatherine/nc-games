@@ -19,6 +19,7 @@ const ReviewCard = ({ review }) => {
   const [voteChange, setVoteChange] = useState(0);
 
   const handleVote = () => {
+    console.log("handleVote is happening");
     setVoteChange((currVotes) => currVotes + 1);
     incrementReviewVotesById(review_id, { inc_votes: 1 }).catch((err) => {
       setVoteChange((currVotes) => currVotes - 1);

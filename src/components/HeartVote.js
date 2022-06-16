@@ -1,6 +1,7 @@
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 const HeartVote = ({ handleFunc, votes, voteChange, expanded }) => {
+
   return (
     <p>
       {voteChange === 0 ? (

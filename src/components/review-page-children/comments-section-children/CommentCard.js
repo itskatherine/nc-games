@@ -10,12 +10,12 @@ const CommentCard = ({ comment }) => {
     // incrementCommentVotesById(review_id, { inc_votes: 1 }).catch((err) => {
     //   setCommentVoteChange((currVotes) => currVotes - 1);
     // });
-    //This endpoint doesn't exist so will just
+    //This endpoint doesn't exist so will just leave this here
   };
 
   const { body, author, votes, created_at } = comment;
   return (
-    <p className="comment">
+    <div className="comment">
       <strong className="comment-card-author">{author}</strong>{" "}
       <span className="comment-body">{body}</span>
       <span className="comment-card-date-vote">
@@ -26,7 +26,7 @@ const CommentCard = ({ comment }) => {
         />
         {convertDate(created_at)}
       </span>
-    </p>
+    </div>
   );
 };
 
