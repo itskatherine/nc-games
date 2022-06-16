@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { incrementReviewVotesById } from "../../utils/api";
 import { convertDate, formatCategories } from "../../utils/utils";
+import HeartVote from "../HeartVote";
 
 const ReviewCard = ({ review }) => {
   const {
@@ -16,15 +14,6 @@ const ReviewCard = ({ review }) => {
     review_id,
   } = review;
 
-  const [voteChange, setVoteChange] = useState(0);
-
-  const handleVote = () => {
-    setVoteChange((currVotes) => currVotes + 1);
-    incrementReviewVotesById(review_id, { inc_votes: 1 }).catch((err) => {
-      setVoteChange((currVotes) => currVotes - 1);
-    });
-  };
-
   return (
     <>
       <div className="review-page">
@@ -36,14 +25,7 @@ const ReviewCard = ({ review }) => {
           className="review-page-icon"
           src={review_img_url}
         ></img>
-        <p>
-          {voteChange === 0 ? (
-            <AiOutlineHeart onClick={handleVote} />
-          ) : (
-            <AiFillHeart />
-          )}
-          {votes + voteChange} votes
-        </p>
+        <HeartVote votes={votes} expanded={true} review_id={review_id} />
         <div className="review-body">
           <p>{review_body}</p>
           <p className="date">
