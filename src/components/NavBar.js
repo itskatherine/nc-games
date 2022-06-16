@@ -12,7 +12,7 @@ const NavBar = ({ categories }) => {
         <ul>
           {categories.map((category, index) => {
             return (
-              <li key={index}>
+              <li className="category-menu" key={index}>
                 <Link to={`/reviews/categories/${category.slug}`}>
                   {formatCategories(category.slug)}
                 </Link>

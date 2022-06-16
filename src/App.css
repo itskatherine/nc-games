@@ -37,7 +37,7 @@ ul,li{
   height:100%
 }
 
-.burger-menu li{
+li.category-menu {
   padding:0.5em;
 }
 
