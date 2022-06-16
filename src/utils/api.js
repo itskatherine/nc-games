@@ -45,7 +45,6 @@ export const postCommentFromReviewId = (review_id, user, newComment) => {
   return boardgameAPI
     .post(`/reviews/${review_id}/comments`, request)
     .then((response) => {
-      console.log(response.data);
       return response.data;
     });
 };
