@@ -6,13 +6,20 @@ const ReviewList = ({ category }) => {
   const [reviewList, setReviewList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [sortCategory, setSortCategory] = useState("created_at");
+  const [order, setOrder] = useState("DESC");
 
   const toggleSortCategory = (newSortCategory) => {
     setSortCategory(newSortCategory);
   };
 
+  const toggleOrder = () => {
+    setOrder((currentOrder) => {
+      return currentOrder === "ASC" ? "DESC" : "ASC";
+    });
+  };
+
   useEffect(() => {
-    getReviews("asc", sortCategory).then((allReviews) => {
+    getReviews(order, sortCategory).then((allReviews) => {
       if (category) {
         setReviewList(
           allReviews.filter((review) => review.category === category)
@@ -23,7 +30,7 @@ const ReviewList = ({ category }) => {
 
       setIsLoaded(true);
     });
-  }, [category, sortCategory]);
+  }, [category, sortCategory, order]);
 
   if (!isLoaded) {
     return <h2>Loading...</h2>;
@@ -53,7 +60,7 @@ const ReviewList = ({ category }) => {
       >
         Votes
       </button>
-      <button>Asc/Desc</button>
+      <button onClick={toggleOrder}>{order === "ASC" ? "↑" : "↓"}</button>
       <ul className="review-list">
         {reviewList.map((review) => {
           return <ReviewCard review={review} key={review.review_id} />;
