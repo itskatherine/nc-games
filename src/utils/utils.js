@@ -19,3 +19,8 @@ export const formatCategories = (category) => {
   const noSpaces = toString.replaceAll("-", " ");
   return noSpaces;
 };
+
+export const extractCategorySlugs = (categories) => {
+  const categoriesCopy = [...categories];
+  return categoriesCopy.map((category) => category.slug);
+};

@@ -54,3 +54,4 @@ export const postCommentFromReviewId = (review_id, user, newComment) => {
 export const deleteCommentById = (comment_id) => {
   return boardgameAPI.delete(`/comments/${comment_id}`);
 };
+
