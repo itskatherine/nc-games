@@ -2,6 +2,7 @@ import { useState } from "react";
 import { postCommentFromReviewId } from "../../../utils/api";
 import { Toaster } from "react-hot-toast";
 import { toast } from "react-hot-toast";
+import party from "party-js";
 
 const CommentAdder = ({ setCommentList, user, review_id }) => {
   const [newComment, setNewComment] = useState("");
@@ -19,6 +20,8 @@ const CommentAdder = ({ setCommentList, user, review_id }) => {
           });
           setNewComment("");
           toast.success("Comment Posted");
+          party.confetti(event.target);
+
           setSubmitInProgress(false);
         }
       );
@@ -32,27 +35,31 @@ const CommentAdder = ({ setCommentList, user, review_id }) => {
       <div>
         <Toaster />
       </div>
-      <div className="comment">
-        <form onSubmit={handleSubmit}>
-          <label>
-            <strong>{user}</strong>
-          </label>
-          <textarea
-            onChange={(event) => {
-              if (!submitInProgress) {
-                setNewComment(event.target.value);
-              }
-            }}
-            rows="4"
-            cols="50"
-            name="comment"
-            value={newComment}
-          ></textarea>
-          <button type="submit" disabled={submitInProgress}>
-            Submit
-          </button>
-        </form>
-      </div>
+
+      <form className="comment" onSubmit={handleSubmit}>
+        <label className="in-comment">
+          <strong>{user}</strong>
+        </label>
+        <textarea
+          className="in-comment"
+          onChange={(event) => {
+            party.confetti(event.target);
+            if (!submitInProgress) {
+              setNewComment(event.target.value);
+            }
+          }}
+          name="comment"
+          value={newComment}
+          type="text"
+        ></textarea>
+        <button
+          className="in-comment"
+          type="submit"
+          disabled={submitInProgress}
+        >
+          Submit
+        </button>
+      </form>
     </>
   );
 };

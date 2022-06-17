@@ -17,14 +17,14 @@ const HeartVote = ({ votes, review_id, expanded }) => {
   };
 
   return (
-    <p>
+    <>
       {voteChange === 0 ? (
         <AiOutlineHeart onClick={handleVote} />
       ) : (
         <AiFillHeart onClick={handleVote} />
       )}
       {votes + voteChange} {expanded ? "votes" : null}
-    </p>
+    </>
   );
 };
 

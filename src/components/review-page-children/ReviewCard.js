@@ -25,7 +25,9 @@ const ReviewCard = ({ review }) => {
           className="review-page-icon"
           src={review_img_url}
         ></img>
-        <HeartVote votes={votes} expanded={true} review_id={review_id} />
+        <p>
+          <HeartVote votes={votes} expanded={true} review_id={review_id} />
+        </p>
         <div className="review-body">
           <p>{review_body}</p>
           <p className="date">

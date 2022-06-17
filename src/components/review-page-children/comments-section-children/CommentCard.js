@@ -6,14 +6,19 @@ const CommentCard = ({ comment, user, setCommentList }) => {
   const { body, author, votes, created_at, comment_id } = comment;
   return (
     <div className="comment" key={comment_id}>
-      <strong className="comment-card-author">{author}</strong>{" "}
-      <span className="comment-body">{body}</span>
-      <span className="comment-card-date-vote">
+      <strong className="start">{author}</strong>
+      <span className="end">{body}</span>
+      <span className="end">
         <HeartVote votes={votes} expanded={false} />
-        {convertDate(created_at)}
       </span>
+      <span>{convertDate(created_at)}</span>
       {user === author ? (
-        <BinButton setCommentList={setCommentList} comment_id={comment_id} />
+        <BinButton
+          className="end"
+          setCommentList={setCommentList}
+          comment_id={comment_id}
+          user={user}
+        />
       ) : null}
     </div>
   );

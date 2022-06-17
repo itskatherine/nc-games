@@ -14,6 +14,7 @@ const CommentsSection = ({ review_id, user }) => {
 
   return (
     <>
+    <h3>Type a comment, you won't regret it!</h3>
       <CommentAdder
         setCommentList={setCommentList}
         user={user}
