@@ -4,12 +4,14 @@ const boardgameAPI = axios.create({
   baseURL: "https://katherineboardgames.herokuapp.com/api/",
 });
 
-export const getReviews = (order, sort_category) => {
-  const endPointStr = `/reviews/?sort_by=${sort_category}&order=${order}`;
-
-  return boardgameAPI.get(endPointStr).then((response) => {
-    return response.data.reviews;
-  });
+export const getAllReviews = (order, sort_category, category) => {
+  return boardgameAPI
+    .get("/reviews", {
+      params: { sort_by: sort_category, order: order, category: category },
+    })
+    .then((response) => {
+      return response.data.reviews;
+    });
 };
 
 export const getAllCategories = () => {
@@ -54,4 +56,3 @@ export const postCommentFromReviewId = (review_id, user, newComment) => {
 export const deleteCommentById = (comment_id) => {
   return boardgameAPI.delete(`/comments/${comment_id}`);
 };
-
