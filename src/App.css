@@ -27,7 +27,23 @@ ul,li{
   border-radius: 10px;;
 }
 
+.sorting-bar button{
+  padding:0.5em;
+  margin: 0.5em;
+  border-radius: 0.25em;;
+  border:none;
+  background-color: rgb(206, 213, 255);
+  font-weight:bold
+}
+.sorting-bar button:hover{
+  background-color: rgb(213, 213, 213);
+}
 
+button.order{
+  margin-left:1em;
+  background-color: rgb(134, 244, 207);
+
+}
 
 .hamburger-react{
   margin:auto;
@@ -84,9 +100,11 @@ header{
 .review-list{
   display:flex;
   flex-wrap:wrap;
+  justify-content: center;
 }
 
 .review-card{
+  
   background-color: #cccccc;
   background-image: linear-gradient(rgb(124, 193, 246), rgb(164, 96, 198));
   padding: 1em;

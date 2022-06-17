@@ -41,7 +41,7 @@ const ReviewList = ({ category }) => {
 
   return (
     <>
-      <div className="sorting">
+      <div className="sorting-bar">
         <label>sort by: </label>
         <button
           onClick={() => {
@@ -64,8 +64,11 @@ const ReviewList = ({ category }) => {
         >
           Votes
         </button>
+
+        <button className="order" onClick={toggleOrder}>
+          {order === "ASC" ? "↑" : "↓"}
+        </button>
       </div>
-      <button onClick={toggleOrder}>{order === "ASC" ? "↑" : "↓"}</button>
       <ul className="review-list">
         {reviewList.map((review) => {
           return <ReviewCard review={review} key={review.review_id} />;
