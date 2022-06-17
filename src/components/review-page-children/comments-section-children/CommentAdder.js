@@ -22,6 +22,8 @@ const CommentAdder = ({ setCommentList, user, review_id }) => {
           setSubmitInProgress(false);
         }
       );
+    } else {
+      toast.error("You can't submit an empty comment");
     }
   };
 
