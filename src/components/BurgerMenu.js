@@ -17,7 +17,7 @@ const BurgerMenu = ({ categories }) => {
         <ul>
           {categories.map((category, index) => {
             return (
-              <li key={index} className="category-menu">
+              <li key={index} className="expanded-burger-menu">
                 <Link to={`/reviews/categories/${category.slug}`}>
                   {formatCategories(category.slug)}
                 </Link>

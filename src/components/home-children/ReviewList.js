@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getReviews } from "../../utils/api";
+import { getAllReviews } from "../../utils/api";
+import ErrorPage from "../ErrorPage";
 import ReviewCard from "./review-list-children/ReviewCard";
 
 const ReviewList = ({ category }) => {
@@ -7,6 +8,7 @@ const ReviewList = ({ category }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [sortCategory, setSortCategory] = useState("created_at");
   const [order, setOrder] = useState("DESC");
+  const [error, setError] = useState(false);
 
   const toggleSortCategory = (newSortCategory) => {
     setSortCategory(newSortCategory);
@@ -19,48 +21,54 @@ const ReviewList = ({ category }) => {
   };
 
   useEffect(() => {
-    getReviews(order, sortCategory).then((allReviews) => {
-      if (category) {
-        setReviewList(
-          allReviews.filter((review) => review.category === category)
-        );
-      } else {
+    getAllReviews(order, sortCategory, category)
+      .then((allReviews) => {
         setReviewList(allReviews);
-      }
-
-      setIsLoaded(true);
-    });
+        setIsLoaded(true);
+        setError(false);
+      })
+      .catch((err) => {
+        setError(err.response.data.msg);
+      });
   }, [category, sortCategory, order]);
 
+  if (error) {
+    return <ErrorPage message={error} />;
+  }
   if (!isLoaded) {
     return <h2>Loading...</h2>;
   }
 
   return (
     <>
-      <label>sort by: </label>
-      <button
-        onClick={() => {
-          toggleSortCategory("created_at");
-        }}
-      >
-        Date
-      </button>
-      <button
-        onClick={() => {
-          toggleSortCategory("comment_count");
-        }}
-      >
-        Comment count
-      </button>
-      <button
-        onClick={() => {
-          toggleSortCategory("votes");
-        }}
-      >
-        Votes
-      </button>
-      <button onClick={toggleOrder}>{order === "ASC" ? "↑" : "↓"}</button>
+      <div className="sorting-bar">
+        <label>sort by: </label>
+        <button
+          onClick={() => {
+            toggleSortCategory("created_at");
+          }}
+        >
+          Date
+        </button>
+        <button
+          onClick={() => {
+            toggleSortCategory("comment_count");
+          }}
+        >
+          Comment count
+        </button>
+        <button
+          onClick={() => {
+            toggleSortCategory("votes");
+          }}
+        >
+          Votes
+        </button>
+
+        <button className="order" onClick={toggleOrder}>
+          {order === "ASC" ? "↑" : "↓"}
+        </button>
+      </div>
       <ul className="review-list">
         {reviewList.map((review) => {
           return <ReviewCard review={review} key={review.review_id} />;

@@ -29,7 +29,10 @@ function App() {
         {isMobile ? <BurgerMenu categories={categories} /> : null}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/reviews/categories/:category" element={<Home />} />
+          <Route
+            path="/reviews/categories/:category"
+            element={<Home categories={categories} />}
+          />
           <Route
             path="/reviews/:review_id"
             element={<ReviewPage user={user} />}

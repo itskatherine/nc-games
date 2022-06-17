@@ -2,13 +2,14 @@ import ReviewList from "./home-children/ReviewList";
 import CategoryHeader from "./home-children/CategoryHeader";
 import { useParams } from "react-router-dom";
 
-const Home = () => {
-  //will contain a conditional header (saying categories)
-  //will contain input to sort results
+const Home = ({ categories }) => {
   const { category } = useParams();
+
   return (
     <>
-      {category ? <CategoryHeader category={category} /> : null}
+      {category ? (
+        <CategoryHeader category={category} categories={categories} />
+      ) : null}
       <ReviewList category={category} />
     </>
   );
