@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+a, a:visited {
+  color: inherit;
+}
+
+
 header{
   background-color: rgb(215, 189, 240);
 }
