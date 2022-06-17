@@ -21,7 +21,14 @@ const CommentsSection = ({ review_id, user }) => {
       />
       <ul className="comment-list">
         {commentsList.map((comment) => {
-          return <CommentCard key={comment.comment_id} comment={comment} />;
+          return (
+            <CommentCard
+              key={comment.comment_id}
+              comment={comment}
+              user={user}
+              setCommentList={setCommentList}
+            />
+          );
         })}
       </ul>
     </>
