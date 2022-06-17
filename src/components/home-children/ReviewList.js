@@ -40,28 +40,30 @@ const ReviewList = ({ category }) => {
 
   return (
     <>
-      <label>sort by: </label>
-      <button
-        onClick={() => {
-          toggleSortCategory("created_at");
-        }}
-      >
-        Date
-      </button>
-      <button
-        onClick={() => {
-          toggleSortCategory("comment_count");
-        }}
-      >
-        Comment count
-      </button>
-      <button
-        onClick={() => {
-          toggleSortCategory("votes");
-        }}
-      >
-        Votes
-      </button>
+      <div className="sorting">
+        <label>sort by: </label>
+        <button
+          onClick={() => {
+            toggleSortCategory("created_at");
+          }}
+        >
+          Date
+        </button>
+        <button
+          onClick={() => {
+            toggleSortCategory("comment_count");
+          }}
+        >
+          Comment count
+        </button>
+        <button
+          onClick={() => {
+            toggleSortCategory("votes");
+          }}
+        >
+          Votes
+        </button>
+      </div>
       <button onClick={toggleOrder}>{order === "ASC" ? "↑" : "↓"}</button>
       <ul className="review-list">
         {reviewList.map((review) => {
