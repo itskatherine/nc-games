@@ -25,6 +25,7 @@ const ReviewList = ({ category }) => {
       .then((allReviews) => {
         setReviewList(allReviews);
         setIsLoaded(true);
+        setError(false);
       })
       .catch((err) => {
         setError(err.response.data.msg);
